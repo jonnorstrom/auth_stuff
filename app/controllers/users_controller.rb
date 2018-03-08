@@ -19,16 +19,17 @@ class UsersController < ApplicationController
   end
 
   # shows the edit form
+  # 'users/3/edit'
   def edit
-    unless session[:user_id].nil?
-      @user = User.find(session[:user_id])
-      if @user.id != params[:id].to_i
+    if @user = current_user ## true - b/c I'm logged in
+      if @user.id != params[:id].to_i ## FALSE
         redirect_to edit_user_path(@user)
       end
     else
       flash[:errors] = ["You must be logged in to go there"]
       redirect_to login_path
     end
+    ## do something - render :edit
   end
 
   # POST req to up a user's info
