@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get   '/logout' => 'sessions#destroy', as: 'logout'
 
   get   '/marvel' => 'apis#fetch', as: 'fetch'
+  get   '/dogs/:doggo' => 'apis#pictures'
 end
