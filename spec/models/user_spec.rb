@@ -14,7 +14,7 @@ RSpec.describe User, :type => :model do
       expect(user.password_digest).not_to eq('password')
     end
 
-    xit "validates correct password characters" do
+    it "validates correct password characters" do
       user = User.new(username: "jonjon", password: "password")
       other_user = User.new(username: "jonjon", password: "password1")
       another_user = User.new(username: "jonjon", password: "Password1")
@@ -24,7 +24,7 @@ RSpec.describe User, :type => :model do
 
       expect(user.id).to be_nil
       expect(other_user.id).to be_nil
-      expect(other_user.id).not_to be_nil
+      expect(another_user.id).not_to be_nil
     end
   end
 end
